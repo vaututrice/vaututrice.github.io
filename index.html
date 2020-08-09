@@ -1,76 +1,193 @@
+<!-- Save this HTML file and set it as your browser startpage e.g. -->
+<!-- This page is relatively reponsive now, using CSS3 flexbox -->
 <!DOCTYPE html>
-<!--    Copyright 2014 gokoururi
-        This work is free. You can redistribute it and/or modify it under the
-        terms of the Do What The Fuck You Want To Public License, Version 2,
-        as published by Sam Hocevar. See the COPYING file for more details. -->
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>ホームページ</title>
+<head>
+  <link rel="shortcut icon" href="favicon.ico">
+  
+  	<!--
+	        .---------------.
+	       /MMMMMMMdbMMMMMMMM\
+	       /MMMMMMMdbMMMMMMMM\
+	       /MMMMMMMdbMMMMMMMM\
+	        /MMMMMMdbMMMMMMMM\
+	        /MMMMMMdbMMMMMMM\
+	        /MMMMMMbdMMMMMMM\
+	/MMMM   MMMMMMMb dMMMMMMM. ,MM
+	/MMMM  MMMMMMMMb dMMMMMMMM\ `MM
+	.MMMMMMMMMMMMMM`  `\MMMMMMM.MMb
+	  `MMMMMMMMMM´       `MMMMMMMb
+	   `--------´         `------´
+	-->
+  
+  <title>
+    フロントページ
+  </title>
 
-        <link rel="stylesheet" style="text/css" href="general.css" />
+  <!-- META -->
+  <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1.0, user-scalable=no">
 
-        <!-- To change theme, replace its name in following 4 lines  -->
-        <link rel="icon"                           href="themes/ruri-dark/favicon.ico" sizes="16x16 32x32 48x48 64x64" type="image/vnd.microsoft.icon" />
-        <link rel="stylesheet" style="text/css"    href="themes/ruri-dark/colors.css" />
-        <script type="text/javascript">var mascotPath = "themes/ruri-dark/images/mascots/";</script>
-        <script type="text/javascript"              src="themes/ruri-dark/mascots.js"></script>
+  <!-- JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  
+  <!-- CLOCK -->
+  <script type="text/javascript">
+    function GetClock(){
+    var d=new Date();
+    var nhour=d.getHours(),nmin=d.getMinutes();
+    if(nmin<=9) nmin="0"+nmin
+    document.getElementById('clockbox').innerHTML=""+nhour+":"+nmin+"";
+    }
+    window.onload=function(){
+    GetClock();
+    setInterval(GetClock,1000);
+    }
+  </script>
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,700,500italic,700italic,900,900italic);
+    * {
+      font-family: 'Roboto';
+    }
+    body {
+      width: 100%;
+      height: 100%;
+      background: url('https://i.imgur.com/42h6YIp.gif'); /* PAGE BACKGROUND PICTURE, REMOVE THIS LINE IF YOU WANT TO USE A SOLID BG COLOR */
+      background-color: #9F1749; /* PAGE BACKGROUND COLOR */
+      background-position: bottom bottom;
+      background-size: 100%;
+    }
+    .main {
+      width: 68%;
+      height: 50%;
+      left: 18%;
+      position: absolute;
+      top: 25%;
+    }
+    .child {
+      display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    }
+    .wrapper {
+      -webkit-flex: 1 0 15%;
+    flex: 1 0 15%;
+      height: 280px;
+      width: 262px;
+      margin: 20px;
+      margin-bottom: 80px;
+    }
+    @media only screen and (max-width: 900px) {
+      .wrapper {
+        -webkit-flex: 1 0 30%;
+        flex: 1 0 30%;
+      }
+    }
+    @media only screen and (max-width: 600px) {
+      .wrapper {
+        -webkit-flex: 1 0 50%;
+        flex: 1 0 50%;
+      }
+    }
+    .header {
+      text-align: center;
+      border-top: 5px solid rgba(159,23,73,0.1);
+      border-right: 5px solid rgba(159,23,73,0.1);
+      border-left: 5px solid rgba(159,23,73,0.1);
+      height: 55px;
+      line-height: 54px;
+      background: rgba(228,231,236,0.6); //* BOX HEADER BACKGROUND *//
+      font-weight: 900;
+      margin: 0;
+      color: #000000;
+      font-size: 24px;
+      font-family: 'Pixel Arial 11 Regular', sans-serif;
+      margin-bottom: -15px;
+    }
+    ul {
+      width: 100%;
+      background: rgba(42,54,59, 0.6); //* BOX BODY BACKGROUND *//
+      border: 5px solid rgba(159,23,73,0.1);
+      float: left;
+      padding: 20px 0px 20px 0px;
+    }
+    li {
+      padding: 10px;
+      font-size: 1.25vw;
+      text-align: center;
+      font-weight: 300;
+      list-style: none;
+    }
+    li a {
+      color: #fff; //* BODY FONT COLOR *//
+      text-decoration: none;
+      cursor: pointer;
+    }
+    li a:hover {
+      color: #F1C1CF;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    #clockbox {
+      position: absolute;
+      text-align: center;
+      top: 90%;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      font-size: 48px;
+      color:#E4E7EC; //* CLOCK FONT COLOR *//
+    }
+    @media only screen and (max-width: 900px) {
+      #clockbox {
+        top: 0;
+        margin-top: 40px;
+      }
+    }
+  </style>
 
-        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="js/mascots-control.js"></script>
-    </head>
-    <body>
-        <main> <!-- Random mascot image will be set as background-image by javascript -->
-            <header>
-                <h1>こんにちは, <span class="name-highlight">Weavile</span></h1>
-                <p class="subtitle">b-baka</p>
-            </header>
-            <section class="searchContainer">
-                <form class="searchForm" method="get" action="https://google.com/search">
-                    <input class="searchBar search_google" type="text" name="q" placeholder="Google" autofocus="autofocus" search_/>
-                </form>
-                <form class="searchForm" method="get" action="https://youtube.com/results">
-                    <input class="searchBar search_youtube" type="text" name="search_query" placeholder="Youtube" search_/>
-                </form>
-                <form class="searchForm" method="get" action="https://en.wikipedia.org/w/index.php">
-                    <input class="searchBar search_wikipedia" type="text" name="search" placeholder="Wikipedia (en)" search_/>
-                </form>
-            </section>
-            <nav>
-                <ul class="columnList">
-                    <li class="column column_purple">
-                        <a>Social</a>
-                        <ul>
-                            <li><a href="https://www.youtube.com/" target="_blank">YouTube</a>
-                            <li><a href="https://www.twitter.com/" target="_blank">Twitter</a>
-                            <li><a href="https://www.tumblr.com/dashboard" target="_blank">Tumblr</a></li>
-                            <li><a href="https://www.deviantart.com/" target="_blank">deviantART</a></li>
-                            <li><a href="https://mail.google.com/" target="_blank">Gmail</a></li>
-                            <li><a href="https://chesapeake.instructure.com/" target="_blank">College</a></li>
-                        </ul>
-                    </li>
-                    <li class="column column_green">
-                        <a>League</a>
-                        <ul>
-                            <li><a href="https://na.op.gg/summoner/userName=Weavile" target="_blank">op.gg</a></li>
-                            <li><a href="https://www.probuilds.net/" target="_blank">ProBuilds</a></li>
-                            <li><a href="http://www.surrenderat20.net/" target="_blank">Surrender @ 20</a></li>
-                            <li><a href="https://twitch.tv/" target="_blank">Twitch</a></li>
-                        </ul>
-                    </li>
-                    <li class="column column_pink">
-                        <a>Misc</a>
-                        <ul>
-                            <li><a href="http://www.neopets.com/" target="_blank">Neopets</a></li>
-                            <li><a href="http://www1.flightrising.com/" target="_blank">Flight Rising</a></li>
-                            <li><a href="http://4chan.org/" target="_blank">4chan</a></li>
-                            <li><a href="https://thepiratebay.org/" target="_blank">Pirate Bay</a></li>
-                            <li><a href="https://smile.amazon.com/" target="_blank">Amazon</a>
-                            <li><a href="https://www.ebay.com/" target="_blank">eBay</a>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </main>
-    </body>
+</head>
+<body>
+
+  <div class="main">
+    <div class="child">
+      <div class="wrapper">
+        <div class="header">Social</div>
+        <ul>
+          <li><a href="https://www.youtube.com/" target="_blank">YouTube</a>
+          <li><a href="https://www.twitter.com/" target="_blank">Twitter</a>
+          <li><a href="https://www.tumblr.com/dashboard" target="_blank">Tumblr</a></li>
+          <li><a href="https://www.deviantart.com/" target="_blank">deviantART</a></li>
+          <li><a href="https://mail.google.com/" target="_blank">Gmail</a></li>
+          <li><a href="https://www.frostburg.edu/students/" target="_blank">College</a></li>
+          <li><a href="https://outlook.office365.com/owa/?realm=frostburg.edu" target="_blank">College Email</a></li>
+
+        </ul>
+      </div>
+      <div class="wrapper">
+        <div class="header">League</div>
+        <ul>
+          <li><a href="https://na.op.gg/summoner/userName=Weavile" target="_blank">op.gg</a></li>
+          <li><a href="https://www.probuilds.net/" target="_blank">ProBuilds</a></li>
+          <li><a href="http://www.surrenderat20.net/" target="_blank">Surrender @ 20</a></li>
+          <li><a href="https://twitch.tv/" target="_blank">Twitch</a></li>
+        </ul>
+      </div>
+      <div class="wrapper">
+        <div class="header">Misc</div>
+        <ul>
+          <li><a href="http://www.neopets.com/" target="_blank">Neopets</a></li>
+          <li><a href="http://www1.flightrising.com/" target="_blank">Flight Rising</a></li>
+          <li><a href="https://subeta.net/" target="_blank">Subeta</a></li>
+          <li><a href="http://4chan.org/" target="_blank">4chan</a></li>
+          <li><a href="https://smile.amazon.com/" target="_blank">Amazon</a>
+          <li><a href="https://www.ebay.com/" target="_blank">eBay</a>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="clockbox" style=""></div>
+
+</body>
 </html>
